@@ -67,6 +67,22 @@ function updateScore() {
 function updateTime() {
   time--;
   timeEl.innerHTML = time + 's';
+
+  if (time === 0) {
+    clearInterval(timeInterval);
+    // end game
+    gameOver();
+  }
+}
+
+// Game over, show end screen
+function gameOver() {
+  endgameEl.innerHTML = `
+  <h1>Time Ran Out</h1>
+  <p>Your Final Score Is ${score}</p>
+  <button onclick = 'location.reload()'>Reload</button>
+  `;
+  endgameEl.style.display = 'flex';
 }
 
 addWordToDOM();
