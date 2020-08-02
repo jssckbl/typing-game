@@ -53,3 +53,16 @@ function addWordToDOM() {
 }
 
 addWordToDOM();
+
+// Event listeners
+
+text.addEventListener('input', e => {
+  const insertedText = e.target.value;
+
+  if (insertedText === randomWord) {
+    addWordToDOM();
+
+    // Clear
+    e.target.value = '';
+  }
+});
